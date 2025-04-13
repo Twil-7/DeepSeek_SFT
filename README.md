@@ -15,11 +15,11 @@ FreedomIntelligence/medical-o1-reasoning-SFT 是一个用于医疗领域的数�
 
 下载DeepSeek-R1-Distill-Qwen-7B权重文件：
 bash 
-"""
+```
 % 下载库
 pip install -U huggingface_hub hf_transfer -i https://pypi.tuna.tsinghua.edu.cn/simple
 % 配置环境变量
 export HF_ENDPOINT=https://hf-mirror.com
 % 下载数据集/模型
 huggingface-cli download --resume-download deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --local-dir your_path
-"""
+```
