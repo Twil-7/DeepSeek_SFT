@@ -12,7 +12,7 @@ DeepSeek预训练权重：https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill
 FreedomIntelligence/medical-o1-reasoning-SFT 是一个用于医疗领域的数据集，旨在为医疗大模型的训练和优化提供支持，推动医疗领域的智能化发展。该数据集是使用GPT-4o构建的，GPT-4o会搜索可验证医学问题的解决方案，并通过医学验证器对这些方案进行验证。该数据集包含24772个问答样本，每个问答样本由"Question"、"Complex_CoT"、"Response"三部分组成，曾用于微调Huatuo GPT-o1，这是一款专为高级医学推理而设计的医疗领域大语言模型。
 
 <div align="center">
-  <img src="./files/data.png" alt="data" width="400"/>
+  <img src="./files/data.png" alt="sft_data" width="1200"/>
 </div>
 
 # 2、环境配置
@@ -43,15 +43,17 @@ python plot_loss.py
 训练过程中的损失函数值如图所示：
 
 <div align="center">
-  <img src="./files/deepseek_sft.png" alt="deepseek_sft" width="400"/>
+  <img src="./files/deepseek_sft.png" alt="sft_loss" width="1200"/>
 </div>
 
+给出一个Prompt：
 ``` bash 
 Test Problem: 请一步一步推理下面的问题：
 
 多饮、多尿、多食伴体重下降的患者，空腹血糖显著升高，可能是什么疾病？
 ```
 
+原始预训练模型的Response如下：
 ``` bash 
 Raw Model Response: 请一步一步推理下面的问题：
 
@@ -105,6 +107,7 @@ Raw Model Response: 请一步一步推理下面的问题：
 假设空腹血糖达到 **95 mg/dL 或以上**，这属于糖精症，提示可能需要进一步检查以确认糖尿病的存在。
 ```
 
+经过SFT微调后模型的Response如下：
 ``` bash 
 LoRA Model Response: 请一步一步推理下面的问题：
 
@@ -141,6 +144,6 @@ LoRA Model Response: 请一步一步推理下面的问题：
 通过系统的分析和专业指导，可以更好地理解患者病情，并制定相应的治疗方案。这不仅有助于提高患者的生存质量，也能减少并发症的发生风险。希望以上信息能帮助您做出正确的判断！
 ```
 
-从实验结果来看，经过SFT微调之后，模型回复的画风有所转变（语言更加直白，表述更加浅显易懂），回答结果的准确度暂时无法评价。
+从实验结果来看，经过SFT微调后，模型回复的画风有所转变（语言更加直白，表述更加浅显易懂），但回答结果准确度是否有所提升，目前尚无法评价。
 
 
