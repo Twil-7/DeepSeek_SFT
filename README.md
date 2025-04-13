@@ -3,7 +3,7 @@ DeepSeek_Supervised_FineTune_LoRA
 
 # 1、问题描述
 
-加载DeepSeek官网提供的预训练权重，采用LoRA方法，在医疗数据集上进行SFT微调。
+加载DeepSeek官网提供的预训练权重（DeepSeek-R1-Distill-Qwen-7B），采用LoRA方法，在医疗数据集上进行SFT微调。
 
 DeepSeek预训练权重：https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
 
@@ -46,14 +46,14 @@ python plot_loss.py
   <img src="./files/deepseek_sft.png" alt="sft_loss" width="1200"/>
 </div>
 
-给出一个Prompt：
+给定一个Prompt：
 ``` bash 
 Test Problem: 请一步一步推理下面的问题：
 
 多饮、多尿、多食伴体重下降的患者，空腹血糖显著升高，可能是什么疾病？
 ```
 
-原始预训练模型的Response如下：
+原始权重（DeepSeek-R1-Distill-Qwen-7B）模型Response如下：
 ``` bash 
 Raw Model Response: 请一步一步推理下面的问题：
 
@@ -107,7 +107,7 @@ Raw Model Response: 请一步一步推理下面的问题：
 假设空腹血糖达到 **95 mg/dL 或以上**，这属于糖精症，提示可能需要进一步检查以确认糖尿病的存在。
 ```
 
-经过SFT微调后模型的Response如下：
+经过SFT微调（logs/checkpoint-23528）模型Response如下：
 ``` bash 
 LoRA Model Response: 请一步一步推理下面的问题：
 
@@ -144,6 +144,6 @@ LoRA Model Response: 请一步一步推理下面的问题：
 通过系统的分析和专业指导，可以更好地理解患者病情，并制定相应的治疗方案。这不仅有助于提高患者的生存质量，也能减少并发症的发生风险。希望以上信息能帮助您做出正确的判断！
 ```
 
-从实验结果来看，经过SFT微调后，模型回复的画风有所转变（语言更加直白，表述更加浅显易懂），但回答结果准确度是否有所提升，目前尚无法评价。
+从实验结果可以看出，经过SFT微调后，模型回复的画风有所转变（语言更加直白，表述更加浅显易懂），说明在2w-3w高质量数据集下SFT是有效果的。但回答结果的准确度是否有所提升，目前尚无法评价。
 
 
