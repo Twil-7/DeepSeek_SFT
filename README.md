@@ -3,7 +3,7 @@ DeepSeek_SFT_LoRA
 
 # 1、问题描述
 
-加载官网提供的预训练权重（DeepSeek-R1-Distill-Qwen-7B），采用LoRA方法，在医疗数据集上进行SFT微调。
+加载DeepSeek官网提供的预训练权重，采用LoRA方法，在医疗数据集上进行SFT微调。
 
 DeepSeek预训练权重：https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
 
