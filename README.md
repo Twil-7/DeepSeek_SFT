@@ -27,6 +27,10 @@ export HF_ENDPOINT=https://hf-mirror.com
 # 下载数据集/模型
 huggingface-cli download --resume-download deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --local-dir your_path
 ```
+安装项目依赖
+``` bash
+pip install -r requirements.txt
+```
 
 # 3、代码运行
 
