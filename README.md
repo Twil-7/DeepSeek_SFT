@@ -9,11 +9,11 @@ DeepSeek预训练权重：https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill
 
 医疗数据集：https://huggingface.co/datasets/FreedomIntelligence/medical-o1-reasoning-SFT
 
-FreedomIntelligence/medical-o1-reasoning-SFT 是一个用于医疗领域的数据集，旨在为医疗大模型的训练和优化提供支持，推动医疗领域的智能化发展。该数据集是使用GPT-4o构建的，GPT-4o会搜索可验证医学问题的解决方案，并通过医学验证器对这些方案进行验证。
+FreedomIntelligence/medical-o1-reasoning-SFT 是一个用于医疗领域的数据集，旨在为医疗大模型的训练和优化提供支持，推动医疗领域的智能化发展。该数据集是使用GPT-4o构建的，GPT-4o会搜索可验证医学问题的解决方案，并通过医学验证器对这些方案进行验证。该数据集包含24772个问答样本，每个问答样本由"Question"、"Complex_CoT"、"Response"三部分组成，曾用于微调Huatuo GPT-o1，这是一款专为高级医学推理而设计的医疗领域大语言模型。
 
-该数据集包含24772个问答样本，每个问答样本由"Question"、"Complex_CoT"、"Response"三部分组成，曾用于微调Huatuo GPT-o1，这是一款专为高级医学推理而设计的医疗领域大语言模型。
-
-
+<div align="center">
+  <img src="./files/data.png" alt="data" width="400"/>
+</div>
 
 # 2、环境配置
 
@@ -41,6 +41,10 @@ python plot_loss.py
 
 # 4、实验结果展示
 训练过程中的损失函数值如图所示：
+
+<div align="center">
+  <img src="./files/deepseek_sft.png" alt="deepseek_sft" width="400"/>
+</div>
 
 ``` bash 
 Test Problem: 请一步一步推理下面的问题：
