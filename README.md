@@ -1,5 +1,5 @@
 # DeepSeek_SFT
-DeepSeek_Supervised_FineTune_LoRA
+DeepSeek_SFT_LoRA
 
 # 1、问题描述
 
