@@ -16,10 +16,34 @@ FreedomIntelligence/medical-o1-reasoning-SFT 是一个用于医疗领域的数�
 下载DeepSeek-R1-Distill-Qwen-7B权重文件：
 bash 
 ```
-% 下载库
+# 下载库
 pip install -U huggingface_hub hf_transfer -i https://pypi.tuna.tsinghua.edu.cn/simple
-% 配置环境变量
+# 配置环境变量
 export HF_ENDPOINT=https://hf-mirror.com
-% 下载数据集/模型
+# 下载数据集/模型
 huggingface-cli download --resume-download deepseek-ai/DeepSeek-R1-Distill-Qwen-7B --local-dir your_path
 ```
+
+# 3、代码运行
+bash 
+```
+# 模型训练（LoRA SFT微调）
+python train.py
+# 加载SFT后保存的LoRA权重，模型推理
+python test.py
+# 可视化损失函数
+python plot_loss.py
+```
+
+# 4、实验结果展示
+训练过程中的损失函数值如图所示：
+
+提出问题：
+
+原始模型权重（DeepSeek-R1-Distill-Qwen-7B）推理结果：
+
+经过SFT微调后（logs/checkpoint-23528/）推理结果：
+
+从实验结果来看，经过SFT微调之后，模型回复的画风有所转变（语言更加直白，表述更加浅显易懂），回答结果的准确度暂时无法评价。
+
+
